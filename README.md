@@ -1,4 +1,4 @@
-![Untitledvideo-MadewithClipchamp-ezgif com-speed (1)](Final Output/Untitledvideo-MadewithClipchamp-ezgif.com-video-to-gif-converter.gif)
+![Image](https://github.com/user-attachments/assets/934b5af4-6534-415b-9d39-32bed1525ab3)
 ```
 # Article Summarizer 📰
 
