@@ -1,5 +1,5 @@
 ![Image](https://github.com/user-attachments/assets/934b5af4-6534-415b-9d39-32bed1525ab3)
-```
+
 # Article Summarizer 📰
 
 An AI-powered article summarizer that generates concise summaries from text or URLs using advanced NLP models. Built with Streamlit, Hugging Face Transformers, and web scraping capabilities.
@@ -112,4 +112,3 @@ MIT License - see [LICENSE](LICENSE) for details.
   - [Newspaper3k](https://newspaper.readthedocs.io/)
 - Inspired by the need for quick and accurate article summaries.
 
----
