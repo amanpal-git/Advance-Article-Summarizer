@@ -3,7 +3,7 @@
 
 An AI-powered article summarizer that generates concise summaries from text or URLs using advanced NLP models. Built with Streamlit, Hugging Face Transformers, and web scraping capabilities.
 
-![Demo](Final Output/Untitled video - Made with Clipchamp.mp4) 
+![Demo](Final Output/Untitledvideo-MadewithClipchamp-ezgif.com-video-to-gif-converter.gif) 
 
 ---
 
