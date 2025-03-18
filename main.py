@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 import nltk
 import torch
 
+nltk.download('punkt')
+
 # ********** FIX: Set page config FIRST **********
 st.set_page_config(
     page_title="Advanced Article Summarizer",
