@@ -1,13 +1,11 @@
-# app.py
 import streamlit as st
 from newspaper import Article
 from transformers import pipeline
 import requests
 from bs4 import BeautifulSoup
 import nltk
+import os
 import torch
-
-nltk.download('punkt')
 
 # ********** FIX: Set page config FIRST **********
 st.set_page_config(
@@ -16,26 +14,26 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
+
 # Disable problematic watchers early
 from streamlit.watcher import local_sources_watcher
 local_sources_watcher._cached_blacklist = lambda: ["torch", "transformers"]
+
+# ********** FIX: Ensure NLTK 'punkt' is available **********
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")  # Set local NLTK data path
+if not os.path.exists(nltk_data_path):
+    os.makedirs(nltk_data_path)
+
+nltk.data.path.append(nltk_data_path)  # Add to nltk's path
+
+try:
+    nltk.data.find('tokenizers/punkt')  # Check if 'punkt' exists
+except LookupError:
+    nltk.download('punkt', download_dir=nltk_data_path, quiet=True)
+
 # Initialize summarization pipeline
 @st.cache_resource
 def load_summarizer():
-    # Set NLTK data path explicitly
-    nltk.data.path.append("./nltk_data")
-
-    # Download required resources
-    try:
-        nltk.data.find('tokenizers/punkt_tab')
-    except LookupError:
-        nltk.download('punkt_tab', download_dir="./nltk_data", quiet=True)
-
-    try:
-        nltk.data.find('tokenizers/punkt')
-    except LookupError:
-        nltk.download('punkt', download_dir="./nltk_data", quiet=True)
-
     return pipeline("summarization", model="facebook/bart-large-cnn")
 
 summarizer = load_summarizer()
